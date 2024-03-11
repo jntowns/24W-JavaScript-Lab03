@@ -73,4 +73,59 @@ console.log(anotherCar.brand);
 // add some extra if you want
 // Make sure that the function allows for the output of a sentence that describes the hamburger, too
 
+function Hamburger(pattyType, pattyQuantity, cheeseType, bunType, toppings, condiments){
+    this.patty = {
+        "pattyType": firstName,
+        "pattyQuantity": lastName,
+    };
+    this.cheeseType = cheeseType;
+    this.bunType = bunType;
+    this.toppings = toppings;
+    this.condiments = condiments;
+    this.toString = function () {
+        returnString = "";
+        if (cheeseType == "None") {
+            returnString += `Hamburger with a ${this.bunType} bun,`;
+        } else {
+            returnString += `Cheeseburger with a ${this.bunType} bun, ${this.cheeseType} cheese on`;
+        }
+
+        if (pattyQuantity > 1) {
+            returnString += ` ${this.pattyQuantity} ${this.pattyType} patties`;
+        } else {
+            returnString += ` a ${this.pattyType} patty`;
+        }
+
+        if (toppings.length() > 0) {
+            returnString += " garnished with";
+            for (i = 0; i < toppings.length(); i++) {
+                returnString += " ";
+                returnString += toppings[i];
+                returnString += ",";
+            }
+            returnString = returnString.substring(0, returnString.length() - 1);
+        }
+
+        if (condiments.length() > 0) {
+            returnString += " and topped with";
+            for (i = 0; i < condiments.length(); i++) {
+                returnString += " ";
+                returnString += condiments[i];
+                returnString += ",";
+            }
+            returnString = returnString.substring(0, returnString.length() - 1);
+        }
+
+        return returnString;
+    }
+}
+
+let basicBurger = Hamburger("Beef", 1, "Cheddar", "Sesame Seed", [], []);
+let jenBurger = Hamburger("Chicken", 1, "Swiss", "Sourdough", ["Onion", "Mushrooms"], ["Honey Mustard", "Mayo"]);
+let obtuseBurger = Hamburger("Veal", 3, "Provolone", "Cheese", ["Everything"], ["Hot Sauce"]);
+
+console.log(basicBurger.toString());
+console.log(jenBurger.toString());
+console.log(obtuseBurger.toString());
+
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
