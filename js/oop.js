@@ -84,45 +84,45 @@ function Hamburger(pattyType, pattyQuantity, cheeseType, bunType, toppings, cond
     this.condiments = condiments;
     this.toString = function () {
         returnString = "";
-        if (cheeseType == "None") {
+        if (this.cheeseType == "None") {
             returnString += `Hamburger with a ${this.bunType} bun,`;
         } else {
             returnString += `Cheeseburger with a ${this.bunType} bun, ${this.cheeseType} cheese on`;
         }
 
-        if (pattyQuantity > 1) {
-            returnString += ` ${this.pattyQuantity} ${this.pattyType} patties`;
+        if (this.patty.pattyQuantity > 1) {
+            returnString += ` ${this.patty.pattyQuantity} ${this.patty.pattyType} patties`;
         } else {
-            returnString += ` a ${this.pattyType} patty`;
+            returnString += ` a ${this.patty.pattyType} patty`;
         }
 
-        if (toppings.length() > 0) {
-            returnString += " garnished with";
-            for (i = 0; i < toppings.length(); i++) {
+        if (toppings.length > 0) {
+            returnString += ", garnished with";
+            for (i = 0; i < toppings.length; i++) {
                 returnString += " ";
                 returnString += toppings[i];
                 returnString += ",";
             }
-            returnString = returnString.substring(0, returnString.length() - 1);
+            returnString = returnString.substring(0, returnString.length - 1);
         }
 
-        if (condiments.length() > 0) {
+        if (condiments.length > 0) {
             returnString += " and topped with";
-            for (i = 0; i < condiments.length(); i++) {
+            for (i = 0; i < condiments.length; i++) {
                 returnString += " ";
                 returnString += condiments[i];
                 returnString += ",";
             }
-            returnString = returnString.substring(0, returnString.length() - 1);
+            returnString = returnString.substring(0, returnString.length - 1);
         }
 
         return returnString;
     }
 }
 
-let basicBurger = Hamburger("Beef", 1, "Cheddar", "Sesame Seed", [], []);
-let jenBurger = Hamburger("Chicken", 1, "Swiss", "Sourdough", ["Onion", "Mushrooms"], ["Honey Mustard", "Mayo"]);
-let obtuseBurger = Hamburger("Veal", 3, "Provolone", "Cheese", ["Everything"], ["Hot Sauce"]);
+let basicBurger = new Hamburger("Beef", 1, "None", "Sesame Seed", [], []);
+let jenBurger = new Hamburger("Chicken", 1, "Swiss", "Sourdough", ["Onion", "Mushrooms"], ["Honey Mustard", "Mayo"]);
+let obtuseBurger = new Hamburger("Veal", 3, "Provolone", "Cheese", ["Everything"], ["Hot Sauce"]);
 
 console.log(basicBurger.toString());
 console.log(jenBurger.toString());
