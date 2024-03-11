@@ -75,8 +75,8 @@ console.log(anotherCar.brand);
 
 function Hamburger(pattyType, pattyQuantity, cheeseType, bunType, toppings, condiments){
     this.patty = {
-        "pattyType": firstName,
-        "pattyQuantity": lastName,
+        "pattyType": pattyType,
+        "pattyQuantity": pattyQuantity,
     };
     this.cheeseType = cheeseType;
     this.bunType = bunType;
